@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+
+
+h1{
+    text-align: center;
+    color: #fff;
+}
+
+body div.peces {
+	text-align: center;
+	width: 70%;
+	margin: 0 auto;
+}
+
+
+div input[type='button'], button {
+	width: 160px;
+	height: 50px;
+	margin: 2px 0;
+    background-color: green;
+}
+
+div input[type="text"] {
+	height: 100px;
+	width: 100%;
+	background-color: pink;
+	color: #fff;
+	padding: 12px 20px;
+    margin-top: 100px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #777;
+}
+
+div.results input, div.results button {
+	height: 50px;
+	width: 100%;
+}
+
+div.results button {
+	background-color: #804000;
+	color: black;
+	border: 1px indianred;
+}
+
+
+
+</style>
+
+
+</head>
+<body background="fondo.jpg"style="background-repeat: no-repeat; background-size: 120rem; "></body>
+
+ <div class="btn-group-horizontal" style="width: 100%; height: 40%; text-align: right;">
+  <a href="index.html" button type="button"  class="btn btn-dark" style="background-color: black"; >Cerrar sesión</button></a>
+</div>
+
+<script type="text/javascript">
+	var result=0;
+	var evalu=0;
+    var porc=1.10;
+    var porc2=1.15;
+    var porc3=0.50;
+   
+function takeValue(x) {
+	var y=x;
+	document.getElementById('inputwindow').value += x;
+	
+}
+
+function clearInput(y) {
+	document.getElementById('inputwindow').value = y;
+	result=0;
+	var li = document.getElementById('foodlist');
+	document.getElementById('inputwindow2').value = y;
+	result=0;
+	 li.textContent = '';
+	 evalu=0;
+}
+function clearInput1(y) {
+	var li = document.getElementById('foodlist');
+  li.removeChild(li.lastChild);
+	
+}
+
+function calculateResult() {
+	if (evalu!=1){
+	result = document.getElementById('inputwindow').value;
+	  var total=result
+
+  var li = document.createElement("li");
+  li.textContent = 'Total a pagar: $' + total;
+  document.getElementById("foodlist").appendChild(li);
+  evalu=1;
+	}	
+}
+function calculateResult1() {
+	if (evalu!=1){
+	result = document.getElementById('inputwindow').value;
+	  var total=result
+
+  var li = document.createElement("li");
+  li.textContent = 'Total a pagar: $' + total*porc ;
+  document.getElementById("foodlist").appendChild(li);
+  evalu=1;
+	}	
+}
+function calculateResult2() {
+	if (evalu!=1){
+	result = document.getElementById('inputwindow').value;
+	  var total=result
+
+  var li = document.createElement("li");
+  li.textContent = 'Total a pagar: $' + total*porc2;
+  document.getElementById("foodlist").appendChild(li);
+  evalu=1;
+	}	
+}
+function calculateResult3() {
+	if (evalu!=1){
+	result = document.getElementById('inputwindow').value;
+	  var total=result
+
+  var li = document.createElement("li");
+  li.textContent = 'Total a pagar: $' + total*porc3;
+  document.getElementById("foodlist").appendChild(li);
+  evalu=1;
+	}	
+}
+function show(x){
+	resultado=x
+	document.getElementById('inputwindow2').value = resultado
+	}
+function addResult(x){
+	result=parseInt(x)+parseInt(result);
+	document.getElementById('inputwindow').value = result
+	
+	}
+ function addToList(x,y) {
+ 	if (evalu!=1){
+  var fish = x;
+  var amount = y;
+
+  var li = document.createElement("li");
+  li.textContent = fish + ': $' + amount ;
+  document.getElementById("foodlist").appendChild(li);
+  }
+}
+</script>
+<h1>CARNES MADIN</h1> 
+<div class="peces">
+    <form name="Especies" id="Especies">
+    <input type="text" name="inputwindow" id="inputwindow">
+    
+    <div>
+        <button style="background-color: red;" type="button" id="dieciséis" value="156" onclick="addResult(document.getElementById('dieciséis').value);addToList(document.getElementById('dieciséis').textContent,document.getElementById('dieciséis').value);show(document.getElementById('dieciséis').textContent)">Chuletón</button>
+        <button style="background-color: red;" type="button" id="diecisiete" value="80" onclick="addResult(document.getElementById('diecisiete').value);addToList(document.getElementById('diecisiete').textContent,document.getElementById('diecisiete').value);show(document.getElementById('diecisiete').textContent)">Tomahawk</button>
+        <button style="background-color: red;" type="button" id="dieciocho" value="210" onclick="addResult(document.getElementById('dieciocho').value);addToList(document.getElementById('dieciocho').textContent,document.getElementById('dieciocho').value);show(document.getElementById('dieciocho').textContent)">Lomo alto y bajo</button>
+        <button style="background-color: red;" type="button" id="diecinueve" value="40" onclick="addResult(document.getElementById('diecinueve').value);addToList(document.getElementById('diecinueve').textContent,document.getElementById('diecinueve').value);show(document.getElementById('diecinueve').textContent)">New York Steak</button>
+        <button style="background-color: red;" type="button" id="veinte" value="177" onclick="addResult(document.getElementById('veinte').value);addToList(document.getElementById('veinte').textContent,document.getElementById('veinte').value);show(document.getElementById('veinte').textContent)">Rib Eye</button>
+        <button style="background-color: red;" type="button" id="veintiuno" value="156" onclick="addResult(document.getElementById('veintiuno').value);addToList(document.getElementById('veintiuno').textContent,document.getElementById('veintiuno').value);show(document.getElementById('veintiuno').textContent)">Picaña</button>
+        <button style="background-color: red;" type="button" id="veintidós" value="80" onclick="addResult(document.getElementById('veintidós').value);addToList(document.getElementById('veintidós').textContent,document.getElementById('veintidós').value);show(document.getElementById('veintidós').textContent)">Churrasco</button>
+        <button style="background-color: red;" type="button" id="veintitrés" value="210" onclick="addResult(document.getElementById('veintitrés').value);addToList(document.getElementById('veintitrés').textContent,document.getElementById('veintitrés').value);show(document.getElementById('veintitrés').textContent)">Entraña</button>
+        <button style="background-color: red;" type="button" id="veinticuatro" value="40" onclick="addResult(document.getElementById('veinticuatro').value);addToList(document.getElementById('veinticuatro').textContent,document.getElementById('veinticuatro').value);show(document.getElementById('veinticuatro').textContent)">Sirloin</button>
+        <button style="background-color: red;" type="button" id="veinticinco" value="177" onclick="addResult(document.getElementById('veinticinco').value);addToList(document.getElementById('veinticinco').textContent,document.getElementById('veinticinco').value);show(document.getElementById('veinticinco').textContent)">Entrecot</button>
+    </div>
+    
+    <div class="results">
+        <input type="button" id="equal" value="Sin propina" onclick="calculateResult()">
+        <input type="button" id="equal" value="10% de propina" onclick="calculateResult1()">
+        <input type="button" id="equal" value="15% de propina" onclick="calculateResult2()">
+        <input type="button" id="equal" value="50% de descuento" onclick="calculateResult3()">
+        <button type="button" id="clear" value="" onclick="clearInput(document.getElementById('clear').value)">Borrar</button>
+        
+    </div>
+    <input type="text" name="inputwindow2" id="inputwindow2" >
+
+    <ul style="color: yellow;" id="foodlist"></ul>
+</form>
+
+
+
+
+
+</div>
+</html>
